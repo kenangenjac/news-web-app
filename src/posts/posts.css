@@ -1,3 +1,40 @@
 .posts {
   flex: 9;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.postsItem {
+  width: 40%;
+  height: 50%;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.postsImg {
+  width: 60%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.postCategories {
+  margin-top: 10px;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.postTime {
+  margin-top: 10px;
+}
+
+.postsItem > p {
+  padding: 35px;
+  text-align: center;
 }

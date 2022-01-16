@@ -8,6 +8,9 @@
   align-items: center;
   justify-content: space-between;
   font-family: "Josefin Sans", sans-serif;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  z-index: 999;
 }
 
 .topLeft,
@@ -40,7 +43,7 @@
 .topListItem {
   margin-right: 20px;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
 }
 
