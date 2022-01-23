@@ -1,12 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const authRoute = require("./routes/auth");
-
 const app = express();
-app.use(express.json()); //for enabling of sending json objects
+
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 dotenv.config();
+app.use(express.json()); //for enabling of sending json objects
 const URI = process.env.MONGO_URL;
 
 mongoose
@@ -17,8 +18,8 @@ mongoose
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
-//route corresponds to the route of the post req
-app.use("/api/auth", authRoute); // indicates path for posting
+app.use("/api/auth", authRoute); //mounting routes in auth router on /api/auth
+app.use("/api/users", userRoute);
 
 app.get("/", (req, res) => {
   res.send("Kenans");
