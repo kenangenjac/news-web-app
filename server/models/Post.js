@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const PostSchema = mongoose.Schema(
+const PostSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      require: true,
-      uniqued: true,
+      required: true,
+      unique: true,
     },
     description: {
       type: String,

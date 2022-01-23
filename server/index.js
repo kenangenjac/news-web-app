@@ -5,6 +5,7 @@ const app = express();
 
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
+const postRoute = require("./routes/posts");
 
 dotenv.config();
 app.use(express.json()); //for enabling of sending json objects
@@ -20,6 +21,7 @@ mongoose
 
 app.use("/api/auth", authRoute); //mounting routes in auth router on /api/auth
 app.use("/api/users", userRoute);
+app.use("/api/posts", postRoute);
 
 app.get("/", (req, res) => {
   res.send("Kenans");
