@@ -10,11 +10,13 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const imageRoute = require("./routes/images");
-var cors = require("cors");
+const cors = require("cors");
+
 dotenv.config();
 app.use(express.json()); //for enabling of sending json objects
+app.use(cors());
+
 const URI = process.env.MONGO_URL;
-app.use(cors()); // Use this after the variable declaration
 mongoose
   .connect(URI, {
     useNewUrlParser: true,

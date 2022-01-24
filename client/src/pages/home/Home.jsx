@@ -11,9 +11,8 @@ export default function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("http://localhost:5000/api/categories/");
-      //setPosts(res.data)
-      console.log(res.data);
+      const res = await axios.get("/posts");
+      setPosts(res.data)
     };
     fetchPosts();
   }, []); //empty array indicates to use this useEffect on the beggining
@@ -23,7 +22,7 @@ export default function Home() {
       <Header />
       <div className="home">
         {/* <Posts posts={posts} /> sending posts as a prop */}
-        <Posts />
+        <Posts posts={posts} />
         <Sidebar />
       </div>
     </>

@@ -60,7 +60,7 @@ router
   .get("/", async (req, res) => {
     const username = req.query.user;
     const category = req.query.cat;
-    res.set("Access-Control-Allow-Origin", "*");
+
     try {
       let posts;
       // if username has been queried
