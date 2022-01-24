@@ -9,7 +9,7 @@ export default function Post() {
                     <span className="postCategory">Music</span>
                     <span className="postCategory">Lifestyle</span>
                 </div>
-                <span className="postTitle">Lorem ipsum dolor sit, amet.</span>
+                <span className="postTitle">Title 1</span>
                 <span className="postDate">1 hour ago</span>
             </div>
             <p className="postDesc">

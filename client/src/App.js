@@ -1,3 +1,5 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import TopBar from "./components/topbar/TopBar";
 import Settings from "./pages/settings/Settings";
@@ -5,7 +7,6 @@ import SinglePage from "./pages/SinglePage/SinglePage";
 import Write from "./pages/write/Write";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const user = false;
