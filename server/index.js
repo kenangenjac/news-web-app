@@ -1,6 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const multer = require("multer");
+
 const app = express();
 
 const authRoute = require("./routes/auth");
@@ -19,6 +21,22 @@ mongoose
   })
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
+
+// it takes the file and saves inside images file, and filename is the name we are providing on the client side
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, "images"); // second parameter is destination
+  },
+  filename: (req, file, callback) => {
+    callback(null, "biggie.jpg");
+  },
+});
+
+const upload = multer({ storage: storage });
+//upload.single("name"), name must be the same as the key i.e. the key of the input name in form
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  res.status(200).json("File has been uploaded");
+});
 
 app.use("/api/auth", authRoute); //mounting routes in auth router on /api/auth
 app.use("/api/users", userRoute);
