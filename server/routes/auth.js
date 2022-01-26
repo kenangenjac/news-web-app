@@ -19,6 +19,7 @@ router.post("/register", async (req, res) => {
     // console.log(user);
   } catch (error) {
     res.status(500).json(error);
+    return;
   }
 });
 
@@ -26,7 +27,11 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username }); //querrying unique user from db
-    !user && res.status(400).json("Wrong credentials");
+    if (!user) {
+      res.status(400).json("Wrong credentials");
+      return; //return to prevent sending another response, resulting in headers error
+    }
+    // !user && res.status(400).json("Wrong credentials");
 
     const validatePassword = await bcrypt.compare(
       //comparing entered and hashed pass
@@ -34,11 +39,15 @@ router.post("/login", async (req, res) => {
       user.password
     );
     !validatePassword && res.status(400).json("Wrong credentials");
+    if (!validatePassword) {
+      res.status(400).json("Wrong credentials");
+      return;
+    }
 
     const { password, ...others } = user._doc; //excluding password from user when printing it
     res.status(200).json(others);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500);
   }
 });
 
