@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const multer = require("multer");
+const path = require("path");
 
 const app = express();
 
@@ -14,6 +14,8 @@ const cors = require("cors");
 
 dotenv.config();
 app.use(express.json()); //for enabling of sending json objects
+//app.use(express.urlencoded({ useNewUrlParser: true }));
+app.use("/images", express.static(path.join(__dirname, "/images")));
 app.use(cors());
 
 const URI = process.env.MONGO_URL;
