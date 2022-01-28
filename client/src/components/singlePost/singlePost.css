@@ -51,10 +51,41 @@
   color: #666;
   font-size: 18px;
   line-height: 25px;
+  text-align: justify;
 }
 
 .singlePostDesc::first-letter {
   margin-left: 20px;
   font-size: 30px;
   font-weight: 600;
+}
+
+.writeFormGroupUpdate {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-top: 1px dashed #000;
+}
+
+.singlePostTitleInput {
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+.singlePostTitleUpdate {
+  margin-bottom: 20px;
+}
+
+.singlePostButton {
+  width: 150px;
+  border: none;
+  background-color: teal;
+  cursor: pointer;
+  padding: 13px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  align-self: center;
+  float: inline-end;
+  margin: 20px 30px 20px 0;
 }
