@@ -2,26 +2,13 @@ const router = require("express").Router();
 const Comment = require("../models/Comment");
 const Post = require("../models/Post");
 
-router.post("/:id/comment", async (req, res) => {
-  const post = await Post.findById({ _id: req.params.id });
-  const newComment = new Comment({
-    username: req.body.username,
-    // email: req.body.email,
-    comment: req.body.comment,
-    blog: req.params.id,
-  });
-  await newComment.save();
-
+router.get("/", async (req, res) => {
   try {
-    const updatedPost = await Post.findByIdAndUpdate(
-      req.params.id,
-      //   { $set: req.body },
-      { $push: { comments: newComment } },
-      { new: true }
-    );
-    res.status(200).json(updatedPost);
+    const comm = await Comment.find();
+    res.status(200).json(comm);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500);
+    return;
   }
 });
 

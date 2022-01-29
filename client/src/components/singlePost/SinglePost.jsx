@@ -8,7 +8,7 @@ export default function SinglePost() {
     const location = useLocation();
     const postId = location.pathname.split("/")[2];
 
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState({comments: []})
     const publicFolder = "http://localhost:5000/images/";
     const { user } = useContext(Context);
 
@@ -54,7 +54,6 @@ export default function SinglePost() {
     }
 
     const [comment, setComment] = useState("");
-    const [comments, setComments] = useState([]);
 
     const handleComment = async (e) => {
         try {
@@ -63,10 +62,24 @@ export default function SinglePost() {
                     comment: comment
                 }
             )
+            window.location.reload();
         } catch (error) {
             console.log(error)
         }
     }
+
+    //dalje
+    const [comments, setComments] = useState([{comment: ""}]);
+    useEffect(()=>{
+        const getComms = async () => {
+            const coms = await axios.get("/comments");
+            setComments(coms.data);
+        }
+        getComms();
+    }, [postId])
+    
+    comments.map(c=>console.log(c));
+    //
 
     return (
         <div className="singlePost">
@@ -80,7 +93,7 @@ export default function SinglePost() {
                     (
                         <h1 className="singlePostTitle">
                             {title}
-                            {post.username === user?.username && //user?.username - if there is no user, its not going to look for this username
+                            { user && user.userRole === "ADMIN" && //user?.username - if there is no user, its not going to look for this username
                             ( 
                                 <div className="singlePostEdit">
                                     <i className="singlePostIcon fas fa-edit" onClick={() => setUpdateMode(true) }></i>
@@ -128,20 +141,24 @@ export default function SinglePost() {
                                 <input type="text" className="form-control mr-3" placeholder="Add comment..." name="comment" onChange={e=>setComment(e.target.value)}/>
                                 <button className="btn btn-primary" type="submit">Comment</button>
                             </div>}
-
-                            <div className="commented-section mt-2">
-                                <div className="d-flex flex-row align-items-center justify-content-between commented-user">
-                                    <h5 className="mr-2">{user && user.username}</h5><span className="dot mb-1"></span><span className="mb-1 ml-2">4 hours ago</span>
-                                </div>
-                                <div className="comment-text-sm"><span>{post.comments}</span></div>
-                                <div className="reply-section">
-                                    <div className="d-flex flex-row align-items-center voting-icons">
-                                        <i className="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
-                                        <i className="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
-                                        <span className="ml-3 likeCounter">10</span>
+                            {comments.map((c)=>(
+                                c.blog === post._id &&
+                                (<div className="commented-section mt-2">
+                                    <div className="d-flex flex-row align-items-center justify-content-between commented-user">
+                                        <h5 className="mr-2">{c.username}</h5><span className="dot mb-1"></span><span className="mb-1 ml-2">4 hours ago</span>
                                     </div>
-                                </div>
-                            </div>
+                                    <div className="comment-text-sm"><span>{c.comment}</span></div>
+                                    <br></br>
+                                    {/* <div className="reply-section">
+                                        <div className="d-flex flex-row align-items-center voting-icons">
+                                            <i className="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+                                            <i className="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+                                            <span className="ml-3 likeCounter">10</span>
+                                        </div>
+                                    </div> */}
+                                </div>)
+                            ))}
+                            
                         </div>
                     </div>
                 </div>
