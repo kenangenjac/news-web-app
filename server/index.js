@@ -10,6 +10,7 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const imageRoute = require("./routes/images");
+const commentRoute = require("./routes/comments");
 const cors = require("cors");
 
 dotenv.config();
@@ -33,6 +34,7 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/api/upload", imageRoute);
+//app.use("/api/posts", commentRoute);
 
 app.get("/", (req, res) => {
   res.send("Kenans");

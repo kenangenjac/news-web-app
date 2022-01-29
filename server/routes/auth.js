@@ -12,6 +12,7 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: hashedPass,
+      userRole: req.body.userRole,
     });
 
     const user = await newUser.save(); //mongo method to save user to db

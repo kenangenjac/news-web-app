@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Post = require("../models/Post");
+const Comment = require("../models/Comment");
 
 router
   .post("/", async (req, res) => {
@@ -7,6 +8,27 @@ router
     try {
       const savedPost = await newPost.save();
       res.status(200).json(savedPost);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  })
+  .post("/:id/comment", async (req, res) => {
+    const post = await Post.findById({ _id: req.params.id });
+    const newComment = new Comment({
+      username: req.body.username,
+      comment: req.body.comment,
+      blog: req.params.id,
+    });
+    await newComment.save();
+
+    try {
+      const updatedPost = await Post.findByIdAndUpdate(
+        req.params.id,
+        //   { $set: req.body },
+        { $push: { comments: newComment.comment } },
+        { new: true }
+      );
+      res.status(200).json(updatedPost);
     } catch (error) {
       res.status(500).json(error);
     }

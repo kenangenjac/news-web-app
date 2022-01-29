@@ -10,6 +10,7 @@ export default function TopBar() {
     const handleLogout = () =>{
         dispatch({type: "LOGOUT"})
     }
+
     return (
         <div className="topBar">
             <div className="topLeft">
@@ -22,19 +23,24 @@ export default function TopBar() {
                     <li className="topListItem">
                         <Link to={"/"} className="link">HOME</Link>
                     </li>
-                    <li className="topListItem">
-                        <Link to={"/about"} className="link">ABOUT</Link>
-                    </li>
+                    {user && (user.userRole === "ADMIN" && 
+                            <li className="topListItem">
+                                <Link to={"/users"} className="link">USERS</Link>
+                            </li>
+                        )
+                    }
                     <li className="topListItem">
                         <Link to={"/contact"} className="link">CONTACT</Link>
                     </li>
                     <li className="topListItem">
-                        <Link to={"/write"} className="link">WRITE</Link>
+                        <Link to={"/about"} className="link">ABOUT</Link>
                     </li>
-                    <li className="topListItem" onClick={handleLogout}>
-                        {user && "LOGOUT"}
-                        {/* <Link to={"/logout"} className="link">LOGOUT</Link> */}
-                    </li>
+                    {user && (user.userRole === "ADMIN" && 
+                            <li className="topListItem">
+                                <Link to={"/write"} className="link">WRITE</Link>
+                            </li>
+                        )
+                    }
                 </ul>
             </div>
             <div className="topRight">
@@ -50,9 +56,11 @@ export default function TopBar() {
                         <li className="topListItem">
                             <Link to={"/register"} className="link">REGISTER</Link>
                         </li>
-                    </ul> 
+                    </ul>
                     )}
-                <i className="topSearchIcon fas fa-search"></i>
+                    <li className="topListItem" onClick={handleLogout} style={{marginLeft: "35px", listStyle:"none"}}>
+                        {user && "LOGOUT"}
+                    </li>
             </div>
         </div>
     )

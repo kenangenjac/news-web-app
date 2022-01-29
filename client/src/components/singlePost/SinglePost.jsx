@@ -53,6 +53,21 @@ export default function SinglePost() {
         }
     }
 
+    const [comment, setComment] = useState("");
+    const [comments, setComments] = useState([]);
+
+    const handleComment = async (e) => {
+        try {
+            await axios.post(`/posts/${post._id}/comment`, {
+                    username: user.username,
+                    comment: comment
+                }
+            )
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
@@ -102,6 +117,37 @@ export default function SinglePost() {
                 }
                 {updateMode && <button className="singlePostButton" onClick={handleUpdate}>Update</button>} 
             </div>
+
+            <form method="POST" onSubmit={handleComment}>
+                <div className="container mt-5 mb-5">
+                <div className="d-flex justify-content-center row">
+                    <div className="d-flex flex-column col-md-8 w-100">
+                        <div className="coment-bottom bg-white p-2 px-4">
+                            { user && <div className="d-flex flex-row add-comment-section mt-4 mb-4">
+                                <img className="img-fluid img-responsive rounded-circle mr-2" src={publicFolder + user.profilePic} width="38"/>
+                                <input type="text" className="form-control mr-3" placeholder="Add comment..." name="comment" onChange={e=>setComment(e.target.value)}/>
+                                <button className="btn btn-primary" type="submit">Comment</button>
+                            </div>}
+
+                            <div className="commented-section mt-2">
+                                <div className="d-flex flex-row align-items-center justify-content-between commented-user">
+                                    <h5 className="mr-2">{user && user.username}</h5><span className="dot mb-1"></span><span className="mb-1 ml-2">4 hours ago</span>
+                                </div>
+                                <div className="comment-text-sm"><span>{post.comments}</span></div>
+                                <div className="reply-section">
+                                    <div className="d-flex flex-row align-items-center voting-icons">
+                                        <i className="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+                                        <i className="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+                                        <span className="ml-3 likeCounter">10</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            </form>
+
         </div>
     )
 }

@@ -89,3 +89,71 @@
   float: inline-end;
   margin: 20px 30px 20px 0;
 }
+
+/* .bdge {
+  height: 21px;
+  background-color: orange;
+  color: #fff;
+  font-size: 11px;
+  padding: 8px;
+  border-radius: 4px;
+  line-height: 3px;
+}
+
+.comments {
+  text-decoration: underline;
+  text-underline-position: under;
+  cursor: pointer;
+}
+
+.dot {
+  height: 7px;
+  width: 7px;
+  margin-top: 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hit-voting:hover {
+  color: blue;
+}
+
+.hit-voting {
+  cursor: pointer;
+} */
+
+.add-comment-section {
+  justify-content: space-between;
+  font-family: "Varela Round", sans-serif;
+}
+
+.form-control {
+  width: 50%;
+}
+
+.commented-user {
+  font-family: "Lora", serif;
+  width: 20%;
+}
+
+.likeCounter {
+  margin-left: 10px;
+}
+
+.hit-voting {
+  cursor: pointer;
+}
+
+.fa-sort-up:hover {
+  color: green;
+}
+
+.fa-sort-down:hover {
+  color: red;
+}
+
+.comment-text-sm {
+  color: #4b4536;
+  font-family: "Varela Round", sans-serif;
+}

@@ -18,12 +18,6 @@ const Reducer = (state, action) => {
         isFetching: false,
         error: true,
       };
-    case "LOGOUT":
-      return {
-        user: null,
-        isFetching: false,
-        error: false,
-      };
     case "UPDATE_START":
       return {
         ...state, //user and error inside state wont be changed
@@ -40,6 +34,12 @@ const Reducer = (state, action) => {
         user: state.user,
         isFetching: false,
         error: true,
+      };
+    case "LOGOUT":
+      return {
+        user: null,
+        isFetching: false,
+        error: false,
       };
     default:
       return state;

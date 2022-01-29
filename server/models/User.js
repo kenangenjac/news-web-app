@@ -21,6 +21,11 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    userRole: {
+      type: String,
+      enum: ["ADMIN", "USER"],
+      default: "USER",
+    },
   },
   { timestamps: true } // tracking changes in time
 );
