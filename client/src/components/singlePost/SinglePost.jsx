@@ -140,7 +140,7 @@ export default function SinglePost() {
           <span className="singlePostAuthor">
             Author:
             <Link to={`/?user=${post.username}`} className="link">
-              <b>{post.username}</b>
+              <b>{" " + post.username}</b>
             </Link>
           </span>
           <span className="singlePostDate">
@@ -216,7 +216,7 @@ export default function SinglePost() {
                           </span>
                           {user && user.userRole === "ADMIN" && (
                             <i
-                              className="singlePostIcon mb-2"
+                              className="singlePostIcon delCommentIcon mb-2"
                               onClick={(e) => deleteComment(c._id)}
                             >
                               <RiDeleteBin6Line />

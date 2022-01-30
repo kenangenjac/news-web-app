@@ -15,8 +15,9 @@
 
 .singlePostTitle {
   text-align: center;
-  margin: 10px;
-  font-family: "Lora", serif;
+  margin: 15px;
+  font-family: monospace;
+  font-weight: bold;
   font-size: 28px;
 }
 
@@ -38,6 +39,10 @@
   color: tomato;
 }
 
+.delCommentIcon {
+  margin-left: 30px;
+}
+
 .singlePostInfo {
   margin-bottom: 20px;
   display: flex;
@@ -52,6 +57,7 @@
   font-size: 18px;
   line-height: 25px;
   text-align: justify;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .singlePostDesc::first-letter {
@@ -90,42 +96,12 @@
   margin: 20px 30px 20px 0;
 }
 
-/* .bdge {
-  height: 21px;
-  background-color: orange;
-  color: #fff;
-  font-size: 11px;
-  padding: 8px;
-  border-radius: 4px;
-  line-height: 3px;
+.writeText {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-.comments {
-  text-decoration: underline;
-  text-underline-position: under;
-  cursor: pointer;
-}
-
-.dot {
-  height: 7px;
-  width: 7px;
-  margin-top: 3px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.hit-voting:hover {
-  color: blue;
-}
-
-.hit-voting {
-  cursor: pointer;
-} */
 
 .add-comment-section {
   justify-content: space-between;
-  font-family: "Varela Round", sans-serif;
 }
 
 .form-control {
@@ -133,8 +109,9 @@
 }
 
 .commented-user {
-  font-family: "Lora", serif;
-  width: 20%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  width: 30%;
 }
 
 .likeCounter {
@@ -155,7 +132,8 @@
 
 .comment-text-sm {
   color: #4b4536;
-  font-family: "Varela Round", sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: #f6f6f6;
   border-radius: 30px;
 }
