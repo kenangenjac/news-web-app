@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 import { Context } from "../../context/Context";
 import "./singlePost.css"
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { AiOutlineEdit } from 'react-icons/ai';
 
 export default function SinglePost() {
     const location = useLocation();
@@ -69,7 +71,7 @@ export default function SinglePost() {
     }
 
     //dalje
-    const [comments, setComments] = useState([{comment: ""}]);
+    const [comments, setComments] = useState([]);
     useEffect(()=>{
         const getComms = async () => {
             const coms = await axios.get("/comments");
@@ -78,9 +80,23 @@ export default function SinglePost() {
         getComms();
     }, [postId])
     
-    comments.map(c=>console.log(c));
+    //comments.map(c=>console.log(c));
     //
 
+    //delete comment
+    //const [commentId, setCommentId] = useState("");
+    //console.log(commentId);
+    async function deleteComment(id) {
+        try {
+            //let id = commentId.toString();
+            console.log(id.toString());
+            await axios.delete("/comments/" + id.toString());
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
@@ -96,8 +112,8 @@ export default function SinglePost() {
                             { user && user.userRole === "ADMIN" && //user?.username - if there is no user, its not going to look for this username
                             ( 
                                 <div className="singlePostEdit">
-                                    <i className="singlePostIcon fas fa-edit" onClick={() => setUpdateMode(true) }></i>
-                                    <i className="singlePostIcon far fa-trash-alt" onClick={ handleDelete }></i>
+                                    <i className="singlePostIcon" onClick={() => setUpdateMode(true) }><AiOutlineEdit/></i>
+                                    <i className="singlePostIcon" onClick={ handleDelete }><RiDeleteBin6Line/></i>
                                 </div>
                             )}           
                         </h1>
@@ -145,20 +161,16 @@ export default function SinglePost() {
                                 c.blog === post._id &&
                                 (<div className="commented-section mt-2">
                                     <div className="d-flex flex-row align-items-center justify-content-between commented-user">
-                                        <h5 className="mr-2">{c.username}</h5><span className="dot mb-1"></span><span className="mb-1 ml-2">4 hours ago</span>
+                                        <h5 className="mr-2 fw-bold">{c.username}</h5>
+                                        <span className="mb-1 ml-2 time">{new Date(c.createdAt).toString().slice(3,21)}</span>
+                                        {user && (user.userRole === "ADMIN" &&
+                                            <i className="singlePostIcon mb-2" onClick={e=>deleteComment(c._id)}><RiDeleteBin6Line/></i>
+                                        )}
                                     </div>
                                     <div className="comment-text-sm"><span>{c.comment}</span></div>
                                     <br></br>
-                                    {/* <div className="reply-section">
-                                        <div className="d-flex flex-row align-items-center voting-icons">
-                                            <i className="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
-                                            <i className="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
-                                            <span className="ml-3 likeCounter">10</span>
-                                        </div>
-                                    </div> */}
                                 </div>)
                             ))}
-                            
                         </div>
                     </div>
                 </div>

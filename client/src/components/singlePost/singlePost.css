@@ -163,3 +163,7 @@
 .comment-text-sm > span {
   padding-left: 25px;
 }
+
+.time {
+  color: #666;
+}
