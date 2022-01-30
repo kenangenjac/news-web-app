@@ -3,6 +3,15 @@ const User = require("../models/User");
 const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
 
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 //update
 router.put("/:id", async (req, res) => {
   if (req.body.userId === req.params.id) {
@@ -57,14 +66,5 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(error);
   }
 });
-
-// router.get("/", async (req, res) => {
-//   try {
-//     const users = await User.find();
-//     res.status(200).json(users);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
 
 module.exports = router;

@@ -167,3 +167,12 @@
 .time {
   color: #666;
 }
+
+.commentAlert {
+  text-align: center;
+  color: red;
+}
+
+.img-fluid {
+  border-radius: 50%;
+}

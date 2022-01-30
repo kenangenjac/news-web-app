@@ -26,6 +26,11 @@ const UserSchema = new mongoose.Schema(
       enum: ["ADMIN", "USER"],
       default: "USER",
     },
+    userStatus: {
+      type: String,
+      enum: ["ACTIVATED", "UNACTIVATED"],
+      default: "UNACTIVATED",
+    },
   },
   { timestamps: true } // tracking changes in time
 );
