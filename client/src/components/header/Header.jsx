@@ -1,13 +1,17 @@
-import "./header.css"
+import "./header.css";
 
 export default function Header() {
-    return (
-        <div className='header'>
-            <div className="headerTitles">
-                <span className="headerTitleSm">React & Node</span>
-                <span className="headerTitleLg">Blog</span>
-            </div>
-            <img src="https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107__340.jpg" alt="" className="headerImg" />
-        </div>
-    )
+  return (
+    <div className="header">
+      <div className="headerTitles">
+        <span className="headerTitleSm">React & Node</span>
+        <span className="headerTitleLg">Blog</span>
+      </div>
+      <img
+        src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+        alt=""
+        className="headerImg"
+      />
+    </div>
+  );
 }

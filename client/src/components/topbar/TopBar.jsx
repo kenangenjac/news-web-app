@@ -13,52 +13,50 @@ export default function TopBar() {
   };
 
   return (
-    <div className="topBar">
-      <div className="topLeft">
-        <i className="topIcon">
-          <FaFacebookSquare />
-        </i>
-        <i className="topIcon">
-          <FaInstagram />
-        </i>
-        <i className="topIcon">
-          <FaTwitterSquare />
-        </i>
-      </div>
-      <div className="topCenter">
-        <ul className="topList">
-          <li className="topListItem">
+    <nav class="nav-first d-flex align-items-center justify-content-between">
+      <ul class="nav first">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
             <Link to={"/"} className="link">
               HOME
             </Link>
-          </li>
-          {user && user.userRole === "ADMIN" && (
-            <li className="topListItem">
+          </a>
+        </li>
+        {user && user.userRole === "ADMIN" && (
+          <li class="nav-item">
+            <a class="nav-link">
               <Link to={"/users"} className="link">
                 USERS
               </Link>
-            </li>
-          )}
-          <li className="topListItem">
-            <Link to={"/contact"} className="link">
+            </a>
+          </li>
+        )}
+        <li class="nav-item target">
+          <a class="nav-link">
+            <Link to={"/"} className="link">
               CONTACT
             </Link>
-          </li>
-          <li className="topListItem">
-            <Link to={"/about"} className="link">
+          </a>
+        </li>
+        <li class="nav-item target">
+          <a class="nav-link">
+            <Link to={"/"} className="link">
               ABOUT
             </Link>
-          </li>
-          {user && user.userRole === "ADMIN" && (
-            <li className="topListItem">
+          </a>
+        </li>
+        {user && user.userRole === "ADMIN" && (
+          <li class="nav-item">
+            <a class="nav-link">
               <Link to={"/write"} className="link">
                 WRITE
               </Link>
-            </li>
-          )}
-        </ul>
-      </div>
-      <div className="topRight">
+            </a>
+          </li>
+        )}
+      </ul>
+
+      <ul class="nav">
         {user ? (
           <Link to={"/settings"}>
             <img
@@ -68,27 +66,35 @@ export default function TopBar() {
             />
           </Link>
         ) : (
-          <ul className="topList">
-            <li className="topListItem">
-              <Link to={"/login"} className="link">
-                LOGIN
-              </Link>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link">
+                <Link to={"/login"} className="link">
+                  LOGIN
+                </Link>
+              </a>
             </li>
-            <li className="topListItem">
-              <Link to={"/register"} className="link">
-                REGISTER
-              </Link>
+            <li class="nav-item">
+              <a class="nav-link">
+                <Link to={"/register"} className="link">
+                  REGISTER
+                </Link>
+              </a>
             </li>
           </ul>
         )}
         <li
-          className="topListItem"
+          class="nav-item"
           onClick={handleLogout}
           style={{ marginLeft: "35px", listStyle: "none" }}
         >
-          {user && "LOGOUT"}
+          {user && (
+            <a class="nav-link" style={{ cursor: "pointer" }}>
+              LOGOUT
+            </a>
+          )}
         </li>
-      </div>
-    </div>
+      </ul>
+    </nav>
   );
 }

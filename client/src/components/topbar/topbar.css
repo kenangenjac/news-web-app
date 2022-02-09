@@ -11,6 +11,7 @@
   background-color: #f6f6f6;
   border-radius: 10px;
   z-index: 999;
+  padding: 10px 50px 50px 50px;
 }
 
 .topLeft,
@@ -23,6 +24,7 @@
 
 .topCenter {
   flex: 6;
+  margin-left: 40px;
 }
 
 .topIcon {
@@ -60,4 +62,41 @@
   color: #666;
   cursor: pointer;
   margin-left: 15px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .target {
+    display: none;
+  }
+  .nav-link {
+    margin-left: -10px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  /* .topBar {
+    justify-content: space-between;
+    margin-left: 30px;
+  }
+  .topCenter {
+    margin: 0;
+  } */
+  /* .topList > li:nth-child(2),
+  .topList > li:nth-child(3) {
+    display: none;
+  } */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

@@ -61,3 +61,15 @@
   cursor: pointer;
   font-size: 18px;
 }
+
+@media only screen and (max-width: 600px) {
+  .writeForm {
+    width: fit-content;
+  }
+  .writeFormGroup {
+    margin-left: 10px;
+  }
+  .writeSubmit {
+    right: -50px;
+  }
+}

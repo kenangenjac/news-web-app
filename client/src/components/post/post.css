@@ -2,7 +2,7 @@
   width: 385px;
   height: 600px;
   margin: 0px 25px 40px 25px;
-  background-color: #f6f6f6;
+  background-color: rgba(15, 15, 15, 0.171);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -91,4 +91,10 @@
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+}
+
+@media only screen and (max-width: 600px) {
+  .post {
+    width: fit-content;
+  }
 }
