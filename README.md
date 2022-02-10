@@ -109,12 +109,41 @@ Logging in as an admin lets you post news, delete or edit them. Also, admin can 
 
 
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+Some screenshots from the website
+<div align="center">
+  
+  <p>Login screen</p>
+  <a>
+    <img src="client/public/img/Screen5.png" alt="Logo">
+  </a>
+  
+  <p>User panel after login</p>
+  <a>
+    <img src="client/public/img/Screen2.png" alt="Logo">
+  </a>
+  
+  <p>Single post and comment section</p>
+  <a>
+    <img src="client/public/img/Screen3.png" alt="Logo">
+  </a>
+  <a>
+    <img src="client/public/img/Screen4.png" alt="Logo">
+  </a>
+  
+  <p>Update account screen</p>
+  <a>
+    <img src="client/public/img/Screen8.png" alt="Logo">
+  </a>
+  
+  
+  <p>User activation and deactivation in admin mode</p>
+  <a>
+    <img src="client/public/img/Screen6.png" alt="Logo">
+  </a>
+  
+   <p>Writing a post in admin mode</p>
+  <a>
+    <img src="client/public/img/Screen7.png" alt="Logo">
+  </a>
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
