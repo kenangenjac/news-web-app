@@ -8,7 +8,7 @@
   <p align="center">
     News web site with various functionalities
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://kenangenjac.github.io/news-web-app/">View Deployment</a>
     ·
   </p>
 </div>
@@ -40,7 +40,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-News web site where you can view posted news as a guest by default, or comment on posts if You register a profile. After You are registered as a user, you need to wait for admin to activate Your profile. After You are activated as a user, You get a premission to comment under posts.
+News web site where you can view posted news as a guest by default, or comment on posts if You register a profile. After You are registered as a user, you need to wait for admin to activate Your profile. After You are activated as a user, You get a premission to comment under posts. You can also edit Your profile.
 Logging in as an admin lets you post news, delete or edit them. Also, admin can delete comments and activate or deactivate users. (If you want to try admin mode, use credentials admin-admin).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -98,7 +98,7 @@ Logging in as an admin lets you post news, delete or edit them. Also, admin can 
    npm run watch
    ```
    to use nodemon
-6. Enter your MongoDB connection string in server/index.js if you want to work with Your db, or check the deployment to see the already connected project
+6. Enter your MongoDB connection string in server/index.js if you want to work with Your db, or check the <a href="https://kenangenjac.github.io/news-web-app/">deployment</a> to see the already connected project
    ```js
    const URI = 'your_conn_string';
    ```
