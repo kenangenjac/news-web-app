@@ -110,40 +110,54 @@ Logging in as an admin lets you post news, delete or edit them. Also, admin can 
 
 ## Usage
 Some screenshots from the website
-<div align="center">
-  
-  <p>Login screen</p>
+<div align="center">  
+  <p align="left">Login screen</p>
   <a>
     <img src="client/public/img/Screen5.png" alt="Logo">
   </a>
-  
-  <p>User panel after login</p>
+</div>
+
+<br/>
+<div align="center">
+  <p align="left">User panel after login</p>
   <a>
     <img src="client/public/img/Screen2.png" alt="Logo">
   </a>
-  
-  <p>Single post and comment section</p>
+</div>
+
+<br/>
+<div align="center">
+  <p align="left">Single post and comment section</p>
   <a>
     <img src="client/public/img/Screen3.png" alt="Logo">
   </a>
   <a>
     <img src="client/public/img/Screen4.png" alt="Logo">
   </a>
-  
-  <p>Update account screen</p>
+</div>
+
+<br/>
+<div align="center">
+  <p align="left">Update account screen</p>
   <a>
     <img src="client/public/img/Screen8.png" alt="Logo">
   </a>
-  
-  
-  <p>User activation and deactivation in admin mode</p>
+</div>
+
+<br/>
+<div align="center">
+  <p align="left">User activation and deactivation in admin mode</p>
   <a>
     <img src="client/public/img/Screen6.png" alt="Logo">
   </a>
-  
-   <p>Writing a post in admin mode</p>
+</div>
+
+<br/>
+<div align="center">
+  <p align="left">Writing a post in admin mode</p>
   <a>
     <img src="client/public/img/Screen7.png" alt="Logo">
   </a>
 </div>
+
 <p align="right">(<a href="#top">back to top</a>)</p>
